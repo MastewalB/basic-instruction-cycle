@@ -1,0 +1,114 @@
+
+#everything{
+    width:90%;
+    margin:auto;
+    text-align: center;
+}
+
+#btns{
+    padding:20px;
+    padding-right: 10px;
+    background:#bdc5762a;
+    margin-bottom:20px;
+}
+
+#btns button{
+    background:#fff;
+    padding: 5px 20px;
+    margin-left: 20px;
+    border:0;
+}
+
+#btns .fa{
+    font-size:30px; 
+}
+
+#btns .fa-play-circle{
+    color:green;
+}
+
+#btns .fa-pause-circle{
+    color:red;
+}
+
+/* Table  */
+h2 {
+    width:90%;
+    margin:auto;
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+/* For numbers */
+.divTableNums
+{
+    display:  table;
+    width:auto;
+    /* background-color:#eee;
+    border:1px solid  #b9b9b9; */
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px; 
+    border-spacing:6px;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate; */
+}
+.divCellNums
+{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    width:30px;
+    height: 60px;
+    font-weight: 600;
+    font-size: large;
+}
+.divRowNums
+{
+    display:table-row;
+    width:auto;
+    height: auto;
+}
+/* End for Nums */
+
+.tab{
+    width:90%;
+    margin:auto;
+    display: flex;
+}
+
+.divTable
+{
+    display:  table;
+    width:auto;
+    background-color:#eee;
+    border:1px solid  #b9b9b9;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px; 
+    border-spacing:6px;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+}
+
+.divRow
+{
+    display:table-row;
+    width:auto;
+}
+
+.divCell
+{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    width:160px;
+    height: 60px;
+    background-color:#ccc;
+    font-size: large;
+}
+
+.Every{
+    display: flex;
+    width:90%;
+    margin:auto;
+}
+.cpuReg{
+    padding-left: 15rem;
+}
