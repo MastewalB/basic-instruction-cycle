@@ -1,0 +1,116 @@
+/* input section */
+body{
+    
+    font-family: cursive;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 60px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3em;
+}
+
+header.page-header{
+    font-size: 15px; 
+    text-align: center;   
+}
+
+/* Instruction and input storage section */
+.instruction-container {
+    margin-top: 2em;
+    color: darkblue;
+}
+
+form.add-Number, form.add-instruction, .start {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin: 10px auto;
+}
+.btn-addNumber{
+    border: none;
+    background-color: rgba(0,0, 0, 0.2);
+    position: relative;
+    right: 2px;
+    
+}
+form.add-instruction input[name="addnew"], form.add-Number input[name="addNumber"]{
+   
+    width: 400px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: inset;
+    border-radius: 4px;
+    background-color: rgba(0,
+    0, 0, 0.2);
+    
+}
+ul.instruction-list, ul.input-list, .registers-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 0;
+}
+ul.input-list{
+    margin-top: 1.5em;
+}
+ul.instruction-list li, ul.input-list li, .registers-list li{
+    background-color: #fbfbfb;
+    list-style: none;
+    padding: 15px 20px;
+    margin: 1px 0;
+    border: 1px solid rgb(93, 93, 93);
+    border-radius: 4%;
+    position: relative;
+    font-size: 25px;
+    text-align: center;
+}
+.registers-list li:first-child{
+    /* width: 85%;
+    padding: 10px 20px; */
+}
+.bottom{
+    display: block;
+    flex-direction: column;
+}
+.add-instruction-header{
+    padding: 3px 0;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+
+/* Registers field */
+.cpu-registers-container{
+    text-align: center;
+}
+/* Inputs fields  */
+
+.btn-compute{
+    background-color: rgb(20, 220, 47);
+    margin-top: 6em;
+    padding: 20px;
+    /* border: 2px gray solid; */
+    border-radius: 50%;
+    font-size: 40px;
+    text-align: center;
+}
+.user-inputs-container{
+    margin: 6em auto;
+}
+
+
+/* Hide components */
+.invisible {
+    display: none;
+}

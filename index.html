@@ -1,19 +1,84 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Process Instantiation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./style.css">
+    <title>Program Execustion Cycle</title>
 </head>
-
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
-        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="main.js"></script>
-</body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class="instruction-container ">
+                    <h1>Memory</h1>
+                    <ul class="instruction-list">
+                        
+                    </ul>
+                </div>
+                <div class="input-container ">
+                    <ul class="input-list">
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-9 ">
+                <div class="cpu-registers-container mx-auto">
+                    <h1>Cpu Register</h1>
+                    <ul class="registers-list">
+                        <li  id="input_ac" class="input_pc">303 <span class="float-right">PC</span></li>
+                        <li id="input_ac" class="input_ac">1940 <span class="float-right">AC</span></li>
+                        <li  id="input_ac" class="input_IR">0003 <span class="float-right">IR</span></li>
+                    </ul>
+                </div>
 
+                <div class="user-inputs-container">
+
+                    <div class="alerts invisible">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Input instructions first!</strong> You should provide an instruction first.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                    </div>
+                    <header class="page-header">
+                        <h1 class="title-text">Enter your inputs here</h1>
+                    
+                    </header>
+                    
+                    
+                    <div class="bottom">
+                        <form action="" class="add-Number mx-auto ">
+                            <input type="text" name="addNumber" placeholder="Enter a number here">
+                            <button class="btn-addNumber" value="submit"><i class="fas fa-check"></i></button>
+                            
+                        </form>
+                        <div class="start">
+                            <p class="add-instruction-header">Add new instruction </p>
+                        </div>
+                        <form action="" class="add-instruction mx-auto">
+                            
+                            
+                            <input type="text" name="addnew" placeholder="Enter your instruction">
+                            <button class="btn-addNumber" value="submit"><i class="fas fa-check"></i></button>
+    
+                            
+                        </form>
+                        <div class="start">
+                        <button class="btn btn-compute mx-auto"><i class="fas fa-play"></i></button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+    <script src="./index.js"></script>
+</body>
 </html>
