@@ -2,6 +2,11 @@ const instructions_form = document.querySelector('form.add-instruction');
 const inputs_form = document.querySelector('form.add-Number');
 const instructions_ul = document.querySelector('ul.instruction-list')
 const inputs_ul = document.querySelector('ul.input-list')
+const search_form = document.querySelector('form.search');
+const compute = document.querySelector('button.btn-compute');
+const alertDiv = document.querySelector('.alerts');
+const cpuRegisters = document.querySelector('.cpu-registers-container');
+const inputsContainer = document.querySelector('.user-inputs-container');
 
 instruction_set = [] 
 inputs_set = []
@@ -52,3 +57,25 @@ const createNewElement = (element_type="element_type", class_name=" ", text = " 
     }
     return newElement
 }
+
+// start button 
+// get rid of input fields and activate animation tab 
+compute.addEventListener('click', (e) =>{
+    e.preventDefault()
+    console.log(instruction_set)
+    console.log(inputs_set)
+
+    if (instructions_ul.childElementCount == 0){
+        if (alertDiv.classList.contains('invisible')){
+            document.querySelector('.alerts').classList.remove('invisible')
+        }
+    }else{
+        inputsContainer.classList.add('invisible')
+        cpuRegisters.classList.remove('invisible')
+    }
+})
+
+// alert box close 
+alertDiv.querySelector("button").addEventListener('click', e => {
+    document.querySelector('.alerts').classList.add('invisible')
+})
