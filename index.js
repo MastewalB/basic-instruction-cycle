@@ -1,5 +1,5 @@
 const instructions_form = document.querySelector('form.add-instruction');
-const inputs_form = document.querySelector('form.add-Number');
+const data_form = document.querySelector('form.add-Number');
 const instructions_ul = document.querySelector('ul.instruction-list')
 const inputs_ul = document.querySelector('ul.input-list')
 const search_form = document.querySelector('form.search');
@@ -8,35 +8,41 @@ const alertDiv = document.querySelector('.alerts');
 const cpuRegisters = document.querySelector('.cpu-registers-container');
 const inputsContainer = document.querySelector('.user-inputs-container');
 
-instruction_set = []
-data_set = []
+let instruction_index = 300;
+let data_index = 940
+
+instruction_set = new Map() 
+data_set = new Map()
 
 // Adding a new instruction to instructions list 
 instructions_form.addEventListener('submit', e => {
     e.preventDefault();
+    
     const instruction = instructions_form.addnew.value.trim();
     if (instruction != "") {
         const text_span = createNewElement("span", " ", instruction)
         const li = createNewElement("li", " ", " ")
         li.appendChild(text_span);
         instructions_ul.append(li);
-        instruction_set.push([instruction[0], instruction.slice(1)])
+        instruction_set[instruction_index] = instruction;
+        instruction_index ++;
         instructions_form.reset();
     }
 });
 
 // Adding new inputs to inputs list 
-inputs_form.addEventListener('submit', e => {
+data_form.addEventListener('submit', e =>{
     e.preventDefault();
-    const input = inputs_form.addNumber.value.trim();
+    const data = data_form.addNumber.value.trim();
 
-    if (input != "") {
-        const text_span = createNewElement("span", " ", fix_zeros(input))
-        const li = createNewElement("li", " ", " ")
+    if ( data != ""){
+        const text_span = createNewElement("span", " ", fix_zeros(data))
+        const li = createNewElement("li", "user-input", " ")
         li.appendChild(text_span);
         inputs_ul.append(li);
-        data_set.push(input)
-        inputs_form.reset();
+        data_set[data_index] = data;
+        data_index ++;
+        data_form.reset();
     }
 });
 
@@ -79,3 +85,19 @@ compute.addEventListener('click', (e) => {
 alertDiv.querySelector("button").addEventListener('click', e => {
     document.querySelector('.alerts').classList.add('invisible')
 })
+
+// draw focus on a box  
+const drawFocus = (component, duration) =>{
+        component.classList.add('flashy-border')
+        console.log("animate box", component)
+        setTimeout(()=>{
+
+            component.classList.remove('flashy-border')
+        }, duration)
+        // const interval= setInterval(()=>{
+        //     timesRun += 1;
+        //     if(timesRun === 6){
+        //         clearInterval(interval);
+        //     }
+        // }, 600)
+}

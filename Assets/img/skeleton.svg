@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 331" style="enable-background:new 0 0 647 331;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st1{font-family:'MyriadPro-Regular';}
+	.st2{font-size:23px;}
+	.st3{font-size:19px;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
+	#smt{
+    font-weight:300 !important;
+}
+</style>
+<xhtml:script xmlns:xhtml="#"  src="../js/app.js"   type="application/javascript" />
+<!-- <?xml-stylesheet type="text/css" href="../css/style.css"?> -->
+
+<xhtml:stylesheet xmlns:xhtml="#"  href="../css/style.css"   type="text/css" />
+
+
+<rect x="53.5" y="184.5" class="st0" width="190" height="42"/>
+<rect x="53.5" y="142.5" class="st0" width="190" height="42"/>
+<rect x="53.5" y="100.5" class="st0" width="190" height="42"/>
+<rect x="53.5" y="58.5" class="st0" width="190" height="42"/>
+<rect x="53.5" y="268.5" class="st0" width="190" height="42"/>
+<rect x="53.5" y="226.5" class="st0" width="190" height="42"/>
+<text transform="matrix(1 0 0 1 53.3247 29.4014)" class="st1 st2">Memory</text>
+<text transform="matrix(1 0 0 1 12.5605 79.1084)" class="st1 st3">300</text>
+
+<text transform="matrix(1 0 0 1 105.5605 86.1084)" id="smt" class="st1 st3">Some text</text>
+
+<text transform="matrix(1 0 0 1 12.2761 121.3665)" class="st1 st3">301</text>
+<text transform="matrix(1 0 0 1 12.2761 163.3665)" class="st1 st3">302</text>
+<text transform="matrix(1 0 0 1 12.2761 247.3665)" class="st1 st3">940</text>
+<text transform="matrix(1 0 0 1 12.2761 289.3665)" class="st1 st3">941</text>
+<text transform="matrix(1 0 0 1 143.0444 207.9302)" class="st1 st3">...</text>
+<polygon class="st4" points="361.096,208.605 357.427,208.605 357.427,208.605 361.096,208.605 "/>
+<rect x="445" y="58" class="st4" width="128" height="42"/>
+<rect x="445" y="58" class="st4" width="118" height="42"/>
+<rect x="412.239" y="57.5" class="st0" width="118.169" height="43"/>
+<rect x="412" y="100.29" class="st0" width="182.5" height="43"/>
+<rect x="411.896" y="143.398" class="st0" width="182.5" height="43"/>
+<text transform="matrix(1 0 0 1 412 29.6367)" class="st1 st2">CPU Registers</text>
+<text transform="matrix(1 0 0 1 553.7261 79.1084)" class="st1 st3">PC</text>
+<polygon class="st4" points="437.847,200.809 434.013,200.809 434.013,200.809 437.847,200.809 "/>
+<text transform="matrix(1 0 0 1 608.752 121.8218)" class="st1 st3">AC</text>
+<text transform="matrix(1 0 0 1 614.9551 165.3438)" class="st1 st3">IR</text>
+</svg>
