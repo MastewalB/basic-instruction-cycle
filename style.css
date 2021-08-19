@@ -121,3 +121,6 @@ ul.instruction-list li, ul.input-list li, .registers-list li{
     border: 8px rgb(112, 218, 236, 0.8) solid !important;
     
 }
+.flashy-borders{
+    border: 3px blue solid 
+    }

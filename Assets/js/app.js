@@ -14,7 +14,6 @@ const alertDiv = document.querySelector('.alerts');
 const cpuRegisters = document.querySelector('.cpu-registers-container');
 const inputsContainer = document.querySelector('.user-inputs-container');
 
-//console.log(instructions_form, instructions_ul)
 let process_count_begin = 300;
 let data_count_begin = 940;
 
@@ -30,7 +29,6 @@ instructions_form.addEventListener('submit', e => {
 
   const instruction = instructions_form.addnew.value.trim();
   if (instruction != "") {
-    // const text_span = createNewElement("span", " ", instruction)
     const newRow = createNewElement(PC, " ", instruction)
 
     instructions_ul.innerHTML += newRow;
@@ -47,7 +45,6 @@ data_form.addEventListener('submit', e => {
   const data = data_form.addData.value.trim();
 
   if (data != "") {
-    // const text_span = createNewElement("span", " ", )
     const newDataRow = createNewElement(data_index, " ", fix_zeros(data))
     data_ul.innerHTML += newDataRow;
     data_set.set(data_index, data);
@@ -80,12 +77,6 @@ const createNewElement = (index, class_name = " ", data) => {
 }
 
 
-// alert box close 
-// alertDiv.querySelector("button").addEventListener('click', e => {
-//   document.querySelector('.alerts').classList.add('invisible')
-// })
-
-// draw focus on a box  
 const drawFocus = (component, duration) => {
   component.classList.add('flashy-border')
   //console.log("animate box", component)
@@ -93,12 +84,6 @@ const drawFocus = (component, duration) => {
 
     component.classList.remove('flashy-border')
   }, duration)
-  // const interval= setInterval(()=>{
-  //     timesRun += 1;
-  //     if(timesRun === 6){
-  //         clearInterval(interval);
-  //     }
-  // }, 600)
 }
 
 
@@ -172,11 +157,13 @@ function fetch_instruction(process_address) {
 
     process_count_begin++;
 
-    anime({
+
+    var animate = anime({
       targets: element,
       translateX: [
         { value: 404, duration: 900 },
       ],
+
       translateY: [
         { value: 80, duration: 500 }
       ],
@@ -184,12 +171,15 @@ function fetch_instruction(process_address) {
         value: '1turn',
         easing: 'easeInOutSine'
       },
+
+      delay: function (el, i, l) { return i * 600 },
       update: function () {
         pc_cell.innerText = process_count_begin;
 
-      }
+      },
+      autoplay: false,
     });
-
+    animate.play();
     return true;
   }
   return null;
@@ -258,18 +248,3 @@ function store(address, value, data_set) {
   return data_set.set(address, (value).toString());
 }
 
-
-
-
-var animate = anime({
-  targets: `.${PC}`,
-  translateX: [
-    { value: 200, duration: 900 },
-    { value: 0, duration: 900 }
-  ],
-  rotate: {
-    value: '1turn',
-    easing: 'easeInOutSine'
-  },
-  autoplay: false
-});
