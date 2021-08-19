@@ -10,6 +10,8 @@
 // load memory to AC 
 
 
+console.log(inputs_sets)
+
 //Memory stores all the data and instructions 
 let memory = new Map([
     [300, "1940"],
