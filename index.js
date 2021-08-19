@@ -15,11 +15,11 @@ instruction_set = new Map()
 data_set = new Map()
 
 // Adding a new instruction to instructions list 
-instructions_form.addEventListener('submit', e =>{
+instructions_form.addEventListener('submit', e => {
     e.preventDefault();
     
     const instruction = instructions_form.addnew.value.trim();
-    if ( instruction != ""){
+    if (instruction != "") {
         const text_span = createNewElement("span", " ", instruction)
         const li = createNewElement("li", " ", " ")
         li.appendChild(text_span);
@@ -47,18 +47,18 @@ data_form.addEventListener('submit', e =>{
 });
 
 // add prefix zeros to input numbers 
-const fix_zeros = num =>{
-    while (num.length < 4){
+const fix_zeros = num => {
+    while (num.length < 4) {
         num = "0" + num
     }
     return num
 }
 
 //  create new HTML elements ----------- for UI trees 
-const createNewElement = (element_type="element_type", class_name=" ", text = " " ) =>{
+const createNewElement = (element_type = "element_type", class_name = " ", text = " ") => {
     const newElement = document.createElement(element_type);
     newElement.innerHTML = text
-    if (class_name != " "){
+    if (class_name != " ") {
         newElement.setAttribute('class', class_name);
     }
     return newElement
@@ -66,16 +66,16 @@ const createNewElement = (element_type="element_type", class_name=" ", text = " 
 
 // start button 
 // get rid of input fields and activate animation tab 
-compute.addEventListener('click', (e) =>{
+compute.addEventListener('click', (e) => {
     e.preventDefault()
     console.log(instruction_set)
     console.log(data_set)
 
-    if (instructions_ul.childElementCount == 0){
-        if (alertDiv.classList.contains('invisible')){
+    if (instructions_ul.childElementCount == 0) {
+        if (alertDiv.classList.contains('invisible')) {
             document.querySelector('.alerts').classList.remove('invisible')
         }
-    }else{
+    } else {
         inputsContainer.classList.add('invisible')
         cpuRegisters.classList.remove('invisible')
     }

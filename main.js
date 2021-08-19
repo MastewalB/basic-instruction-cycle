@@ -22,6 +22,11 @@ let memory = new Map([
     [941, "0002"]
 ]);
 
+let data_memory = new Map([
+    [940, "0003"],
+    [941, "0002"]
+])
+
 
 let PC = 300; //Process Counter
 let AC = ''; //Accumulator
