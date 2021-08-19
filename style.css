@@ -114,3 +114,10 @@ ul.instruction-list li, ul.input-list li, .registers-list li{
 .invisible {
     display: none;
 }
+
+/* Flashy borders */
+.flashy-border{
+    
+    border: 8px rgb(112, 218, 236, 0.8) solid !important;
+    
+}
