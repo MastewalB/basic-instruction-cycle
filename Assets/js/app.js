@@ -160,7 +160,7 @@ function fetch_instruction(process_address) {
 
     //IR.top 
     //IR.right
-    //mov_box_diagDown(element, 0, 0);
+    mov_box_diagDown(element, IR, 0);
     process_count_begin++;
 
 
@@ -187,33 +187,35 @@ function interpret_instruction(instruction) {
 
 
 function execute_instruction(process_count_begin) {
-
-  while (instruction_available(process_count_begin) == true) {
-
+   
     fetch_instruction(process_count_begin);
-    let { opcode, data } = interpret_instruction(IR);
+    setTimeOut(()=>{
+      let { opcode, data } = interpret_instruction(IR);
 
 
-    process_count_begin++;
-    if (opcode === 1) {
+      process_count_begin++;
+      if (opcode === 1) {
 
-      AC = load(data, data_set);
-      //animaiton from data to ac
-      //AC.top AC.right
-      //mov_box_diagUp(data_cell, 0, 0);
-    }
-    else if (opcode === 2) {
-      store(data, AC, data_set);
-      //animation from ac to data
-      //mov_box_diagDownLeft(ac_cell, 0, 0);
-    }
-    else if (opcode === 5) {
-      let operand = load(data, data_set).value * 1;
-      //animaiton from data to ac
-      let result = (AC.value * 1) + operand;
-      AC.value = fix_zeros(result);
-      ac_cell.innerText = fix_zeros(result);
-    }
+        AC = load(data, data_set);
+        //animaiton from data to ac
+        //AC.top AC.right
+        //mov_box_diagUp(data_cell, 0, 0);
+      }
+      else if (opcode === 2) {
+        store(data, AC, data_set);
+        //animation from ac to data
+        //mov_box_diagDownLeft(ac_cell, 0, 0);
+      }
+      else if (opcode === 5) {
+        let operand = load(data, data_set).value * 1;
+        //animaiton from data to ac
+        let result = (AC.value * 1) + operand;
+        AC.value = fix_zeros(result);
+        ac_cell.innerText = fix_zeros(result);
+      }
+      if (instruction_available(process_count_begin) == true) execute_instruction(process_count_begin)
+    }, 3000)
+    
     console.log({
       "PC": process_count_begin,
       "AC": AC,
@@ -266,19 +268,32 @@ let irX = getOffset(ir_cell).left
 let irY = getOffset(ir_cell).top
 
 
-const mov_box_diagDown = (component, x, y) => {
-  const interval = setInterval(() => {
-    if (x < irX) {
-      component.style.transform = "translate(" + (x + 10) + "px," + (0) + "px)";
-    }
-    if (y < irY) {
-      component.style.transform = "translate(" + (0) + "px," + (y + 10) + "px)";
-    }
+const mov_box_diagDown = (component, data, y) => {
+  console.log(ir_cell)  
+  ir_cell.innerText = ""
+  ir_cell.innerHTML = ""
+  console.log(ir_cell)
+  drawFocus(component, 3200)
+  drawFocus(ir_cell, 2000)
+  setTimeout(()=>{
+    ir_cell.innerText = data
+  }, 1500)
+  // component.style.transform = "translate(" + (585) + "px," + (125) + "px)";
+  // component.style.transitionDelay="0s"
+  // const interval = setInterval(() => {
+  //   acX = getOffset(ac_cell).left
+  //   acY = getOffset(ac_cell).top
+  //   // console.log()
+  //   console.log("=====", x, y, acX, acY)
+  //   if (x < 759)  {x = x + 10};
+  //   if (y < 307)  {y = y + 10};
+  //       component.style.transform = "translate(" + (759) + "px," + (307) + "px)";
+  //       component.style.transitionDelay="2s"
 
-    if (x >= irX && y >= irY) {
-      clearInterval(interval)
-    }
-  }, 100)
+  //   if (x >= irX && y >= irY) {
+  //     clearInterval(interval)
+  //   }
+  // }, 100)
 }
 
 const mov_box_diagUp = (component, x, y) => {
