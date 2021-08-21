@@ -127,3 +127,6 @@ h2 {
 .data-header{
     margin-top: 4em;
 }
+.flashy-border{
+    border: 3px rgb(96, 210, 238) solid ;
+}
