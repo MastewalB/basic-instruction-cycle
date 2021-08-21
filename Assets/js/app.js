@@ -157,13 +157,16 @@ function fetch_instruction(process_address) {
     IR = instruction_set.get(process_address);
     console.log('IR', IR);
 
+    var pc_str = '._' + (process_count_begin).toString();
+    var element = document.querySelector(pc_str);
 
+    var data_str = '._' + (data_count_begin).toString();
+    var data_cell = document.querySelector(data_str);
+    
     //IR.top 
     //IR.right
     mov_box_diagDown(element, IR, 0);
     process_count_begin++;
-
-
 
     pc_cell.innerText = process_count_begin;
     return true;
