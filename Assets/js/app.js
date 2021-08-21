@@ -187,43 +187,43 @@ function interpret_instruction(instruction) {
 
 
 function execute_instruction(process_count_begin) {
-   
-    fetch_instruction(process_count_begin);
-    setTimeOut(()=>{
-      let { opcode, data } = interpret_instruction(IR);
+
+  fetch_instruction(process_count_begin);
+  setTimeOut(() => {
+    let { opcode, data } = interpret_instruction(IR);
 
 
-      process_count_begin++;
-      if (opcode === 1) {
+    process_count_begin++;
+    if (opcode === 1) {
 
-        AC = load(data, data_set);
-        //animaiton from data to ac
-        //AC.top AC.right
-        //mov_box_diagUp(data_cell, 0, 0);
-      }
-      else if (opcode === 2) {
-        store(data, AC, data_set);
-        //animation from ac to data
-        //mov_box_diagDownLeft(ac_cell, 0, 0);
-      }
-      else if (opcode === 5) {
-        let operand = load(data, data_set).value * 1;
-        //animaiton from data to ac
-        let result = (AC.value * 1) + operand;
-        AC.value = fix_zeros(result);
-        ac_cell.innerText = fix_zeros(result);
-      }
-      if (instruction_available(process_count_begin) == true) execute_instruction(process_count_begin)
-    }, 3000)
-    
-    console.log({
-      "PC": process_count_begin,
-      "AC": AC,
-      "data": data,
-    });
-  }
-  //console.log(memory);
+      AC = load(data, data_set);
+      //animaiton from data to ac
+      //AC.top AC.right
+      //mov_box_diagUp(data_cell, 0, 0);
+    }
+    else if (opcode === 2) {
+      store(data, AC, data_set);
+      //animation from ac to data
+      //mov_box_diagDownLeft(ac_cell, 0, 0);
+    }
+    else if (opcode === 5) {
+      let operand = load(data, data_set).value * 1;
+      //animaiton from data to ac
+      let result = (AC.value * 1) + operand;
+      AC.value = fix_zeros(result);
+      ac_cell.innerText = fix_zeros(result);
+    }
+    if (instruction_available(process_count_begin) == true) execute_instruction(process_count_begin)
+  }, 3000)
+
+  console.log({
+    "PC": process_count_begin,
+    "AC": AC,
+    "data": data,
+  });
 }
+//console.log(memory);
+
 
 
 
@@ -269,13 +269,13 @@ let irY = getOffset(ir_cell).top
 
 
 const mov_box_diagDown = (component, data, y) => {
-  console.log(ir_cell)  
+  console.log(ir_cell)
   ir_cell.innerText = ""
   ir_cell.innerHTML = ""
   console.log(ir_cell)
   drawFocus(component, 3200)
   drawFocus(ir_cell, 2000)
-  setTimeout(()=>{
+  setTimeout(() => {
     ir_cell.innerText = data
   }, 1500)
   // component.style.transform = "translate(" + (585) + "px," + (125) + "px)";
