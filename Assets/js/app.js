@@ -16,6 +16,23 @@ const alertDiv = document.querySelector('.alerts');
 const cpuRegisters = document.querySelector('.cpu-registers-container');
 const inputsContainer = document.querySelector('.user-inputs-container');
 
+
+function add(bin1, bin2) {
+  return bin1 + bin2;
+}
+
+function subtract(bin1, bin2) {
+  return bin1 - bin2;
+}
+
+function load(address, data_set) {
+  return data_set.get(address);
+}
+
+function store(address, value, data_set) {
+  return data_set.set(address, (value).toString());
+}
+
 let process_count_begin = 300;
 let data_count_begin = 940;
 
@@ -60,14 +77,14 @@ data_form.addEventListener('submit', e => {
   const data = data_form.addData.value.trim();
 
   if (data != "") {
-    const cell = new Cell(PC, data);
+    const cell = new Cell(data_index, data);
     const newDataRow = cell.create();
 
 
 
     data_ul.innerHTML += newDataRow;
-    cell.top = (document.querySelector('._' + PC.toString())).getBoundingClientRect().top;
-    cell.right = (document.querySelector('._' + PC.toString())).getBoundingClientRect().right;
+    cell.top = (document.querySelector('._' + data_index.toString())).getBoundingClientRect().top;
+    cell.right = (document.querySelector('._' + data_index.toString())).getBoundingClientRect().right;
 
     data_set.set(data_index, cell);
     data_index++;
@@ -162,7 +179,7 @@ function fetch_instruction(process_address) {
 
     var data_str = '._' + (data_count_begin).toString();
     var data_cell = document.querySelector(data_str);
-    
+
     //IR.top 
     //IR.right
     mov_box_diagDown(element, IR, 0);
@@ -192,7 +209,7 @@ function interpret_instruction(instruction) {
 function execute_instruction(process_count_begin) {
 
   fetch_instruction(process_count_begin);
-  setTimeOut(() => {
+  setTimeout(() => {
     let { opcode, data } = interpret_instruction(IR);
 
 
@@ -219,11 +236,6 @@ function execute_instruction(process_count_begin) {
     if (instruction_available(process_count_begin) == true) execute_instruction(process_count_begin)
   }, 3000)
 
-  console.log({
-    "PC": process_count_begin,
-    "AC": AC,
-    "data": data,
-  });
 }
 //console.log(memory);
 
@@ -233,21 +245,6 @@ function execute_instruction(process_count_begin) {
 //console.log(execute_instruction(300));
 
 
-function add(bin1, bin2) {
-  return bin1 + bin2;
-}
-
-function subtract(bin1, bin2) {
-  return bin1 - bin2;
-}
-
-function load(address, data_set) {
-  return data_set.get(address);
-}
-
-function store(address, value, data_set) {
-  return data_set.set(address, (value).toString());
-}
 
 
 
@@ -279,24 +276,9 @@ const mov_box_diagDown = (component, data, y) => {
   drawFocus(component, 3200)
   drawFocus(ir_cell, 2000)
   setTimeout(() => {
-    ir_cell.innerText = data
+    ir_cell.innerText = data.value
   }, 1500)
-  // component.style.transform = "translate(" + (585) + "px," + (125) + "px)";
-  // component.style.transitionDelay="0s"
-  // const interval = setInterval(() => {
-  //   acX = getOffset(ac_cell).left
-  //   acY = getOffset(ac_cell).top
-  //   // console.log()
-  //   console.log("=====", x, y, acX, acY)
-  //   if (x < 759)  {x = x + 10};
-  //   if (y < 307)  {y = y + 10};
-  //       component.style.transform = "translate(" + (759) + "px," + (307) + "px)";
-  //       component.style.transitionDelay="2s"
 
-  //   if (x >= irX && y >= irY) {
-  //     clearInterval(interval)
-  //   }
-  // }, 100)
 }
 
 const mov_box_diagUp = (component, x, y) => {
